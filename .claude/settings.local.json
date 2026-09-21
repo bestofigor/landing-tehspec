@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Process \"D:\\\\Projects\\\\landing-tehspec\\\\index.html\")"
+    ]
+  }
+}

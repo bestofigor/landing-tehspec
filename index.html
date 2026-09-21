@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пестов Игорь — техспец для онлайн-школ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #265876;
+    --bg-soft: #0d121c;
+    --card: rgba(15, 25, 35, 0.6);
+    --border: rgba(255, 255, 255, 0.16);
+    --text: #f5f9ff;
+    --text-muted: #aab6c6;
+    --text-on-bg: rgba(255, 255, 255, 0.82);
+    --highlight: #a0522d;
+    --highlight-hover: #b96a44;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 48px;
+  }
+
+  p { color: var(--text-muted); }
+
+  /* Hero */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .hero-photo img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
+    border: 6px solid var(--highlight);
+    border-radius: 18px;
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
+    animation: photoFloat 5s ease-in-out infinite;
+  }
+
+  @keyframes photoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo img { animation: none; }
+  }
+
+  .hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-on-bg);
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+
+  .hero .badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--highlight);
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 3.2vw, 42px);
+    color: var(--text);
+  }
+
+  .hero h1 span { color: var(--text); text-decoration: underline; text-decoration-color: var(--highlight); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+
+  .hero .offer {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--text);
+    text-align: center;
+    max-width: 100%;
+    margin: 24px 0 40px;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--highlight);
+    color: #1a1400;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn:hover {
+    background: var(--highlight-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn svg { flex-shrink: 0; }
+
+  .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--text-on-bg);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .email-link:hover {
+    color: var(--text);
+    border-color: var(--border);
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--highlight);
+    border-radius: 14px;
+    padding: 28px 24px;
+  }
+
+  .card .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-soft);
+    border: 1.5px solid var(--highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .card p { font-size: 14.5px; margin: 0; }
+
+  /* Process */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 20px;
+  }
+
+  .step {
+    position: relative;
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--highlight);
+    border-radius: 14px;
+    padding: 24px 22px;
+  }
+
+  .step .num {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    border: 1.5px solid var(--highlight);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .step h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .step p { font-size: 14.5px; margin: 0; }
+
+  /* Cases */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 20px;
+  }
+
+  .case-card {
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--highlight);
+    border-radius: 14px;
+    padding: 28px 24px;
+  }
+
+  .case-card h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .case-card .placeholder-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+  }
+
+  .case-card dl {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .case-card dt {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+
+  .case-card dd {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* Contact */
+  .contact-box {
+    background: var(--card);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 2px solid var(--highlight);
+    border-radius: 20px;
+    padding: 56px;
+    text-align: center;
+  }
+
+  .contact-box h2 { margin-bottom: 16px; }
+
+  .contact-box > p {
+    max-width: 480px;
+    margin: 0 auto 36px;
+    font-size: 16px;
+  }
+
+  .contact-box .cta-row {
+    justify-content: center;
+  }
+
+  .contact-meta {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--bg-soft);
+    border: 1.5px solid rgba(160, 82, 45, 0.4);
+    border-radius: 10px;
+    padding: 13px 16px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--highlight);
+    box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.25);
+  }
+
+  .form-submit {
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: var(--highlight);
+  }
+
+  .contact-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 480px;
+    margin: 28px auto;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .contact-divider::before,
+  .contact-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Footer */
+  footer {
+    padding: 32px 0;
+  }
+
+  footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-size: 13.5px;
+    color: var(--text-on-bg);
+  }
+
+  footer a {
+    text-decoration: none;
+    color: var(--text-on-bg);
+    transition: color 0.15s ease;
+  }
+
+  footer a:hover { color: var(--text); }
+
+  footer .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    section { padding: 40px 0; }
+    .hero { min-height: unset; padding: 40px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+    .hero-photo { max-width: 280px; margin: 0 auto; }
+    .cta-row { gap: 16px; }
+    .card, .case-card, .step { padding: 20px 18px; }
+    .contact-box { padding: 32px 20px; }
+    .contact-form { gap: 12px; }
+    footer .container { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="badge">Екатеринбург</div>
+        <h1>Пестов Игорь — <span>техспец</span> для онлайн-школ</h1>
+        <p class="offer">
+          Настраиваю и связываю сервисы, на которых держится онлайн-школа: ИИ-агенты,
+          Salebot, AmoCRM, Telegram-боты и интеграции между ними. Беру на себя техническую
+          часть, чтобы у вас работало без сбоев и ручной рутины.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="https://t.me/IgsvxgI" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.5 3.5L2.5 11l6.2 2.2L11 20l3-4.5 5 3.8L21.5 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            Написать в Telegram
+          </a>
+          <a class="email-link" href="mailto:main@bestofigor.ru">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            main@bestofigor.ru
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="photo.png" alt="Пестов Игорь в образе Vault Dweller — фигурка">
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <span class="eyebrow">Услуги</span>
+      <h2>Что я делаю</h2>
+      <div class="services-grid">
+        <div class="card">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Внедрение ИИ</h3>
+          <p>Подключаю нейросети и ИИ-ассистентов к вашим процессам: обработка заявок, ответы на частые вопросы учеников, помощь в рутинных задачах.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 11-4-7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 4v6h-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Salebot</h3>
+          <p>Чат-боты и автоворонки для прогрева, продаж и поддержки в мессенджерах.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>AmoCRM</h3>
+          <p>Настройка воронок сделок, автоматизаций и интеграций с другими сервисами.</p>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12l6 6L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Интеграции и Telegram-боты</h3>
+          <p>Связываю сервисы между собой, автоматизирую рутину, пишу ботов под задачу.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <span class="eyebrow">Процесс</span>
+      <h2>Как я работаю</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Заявка</h3>
+          <p>Заполняете форму на сайте или пишете в Telegram/на почту — коротко описываете задачу и текущую ситуацию.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Диагностика</h3>
+          <p>Разбираюсь в вашей связке сервисов, нахожу узкие места и предлагаю решение.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Внедрение</h3>
+          <p>Настраиваю, интегрирую и тестирую — с промежуточными апдейтами по ходу работы.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Поддержка</h3>
+          <p>Остаюсь на связи после запуска — помогаю с доработками и решаю возникающие вопросы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="container">
+      <span class="eyebrow">Опыт</span>
+      <h2>Кейсы</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <span class="placeholder-tag">Кейс 1 · скоро</span>
+          <h3>Название проекта</h3>
+          <dl>
+            <div>
+              <dt>Задача</dt>
+              <dd>[Плейсхолдер — описание задачи]</dd>
+            </div>
+            <div>
+              <dt>Решение</dt>
+              <dd>[Плейсхолдер — что было сделано]</dd>
+            </div>
+            <div>
+              <dt>Результат</dt>
+              <dd>[Плейсхолдер — итог]</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="case-card">
+          <span class="placeholder-tag">Кейс 2 · скоро</span>
+          <h3>Название проекта</h3>
+          <dl>
+            <div>
+              <dt>Задача</dt>
+              <dd>[Плейсхолдер — описание задачи]</dd>
+            </div>
+            <div>
+              <dt>Решение</dt>
+              <dd>[Плейсхолдер — что было сделано]</dd>
+            </div>
+            <div>
+              <dt>Результат</dt>
+              <dd>[Плейсхолдер — итог]</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="case-card">
+          <span class="placeholder-tag">Кейс 3 · скоро</span>
+          <h3>Название проекта</h3>
+          <dl>
+            <div>
+              <dt>Задача</dt>
+              <dd>[Плейсхолдер — описание задачи]</dd>
+            </div>
+            <div>
+              <dt>Решение</dt>
+              <dd>[Плейсхолдер — что было сделано]</dd>
+            </div>
+            <div>
+              <dt>Результат</dt>
+              <dd>[Плейсхолдер — итог]</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <span class="eyebrow">Контакты</span>
+        <h2>Оставьте заявку</h2>
+        <p>Заполните форму — отвечаю на почту обычно в течение дня. Или пишите напрямую в Telegram.</p>
+
+        <form class="contact-form" action="https://formsubmit.co/main@bestofigor.ru" method="POST">
+          <input type="hidden" name="_subject" value="Новая заявка с сайта">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="Имя" placeholder="Имя" required>
+          <input type="text" name="Контакт" placeholder="Контакт для связи (Telegram или email)" required>
+          <textarea name="Комментарий" placeholder="Комментарий к задаче" rows="4" required></textarea>
+          <button type="submit" class="btn form-submit">Отправить заявку</button>
+        </form>
+
+        <div class="contact-divider"><span>или</span></div>
+
+        <div class="cta-row">
+          <a class="btn btn-outline" href="https://t.me/IgsvxgI" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.5 3.5L2.5 11l6.2 2.2L11 20l3-4.5 5 3.8L21.5 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            Написать в Telegram
+          </a>
+          <a class="email-link" href="mailto:main@bestofigor.ru">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            main@bestofigor.ru
+          </a>
+        </div>
+        <div class="contact-meta">Екатеринбург</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>© 2026 Пестов Игорь</div>
+      <div class="footer-links">
+        <a href="https://t.me/IgsvxgI" target="_blank" rel="noopener">Telegram</a>
+        <a href="mailto:main@bestofigor.ru">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
