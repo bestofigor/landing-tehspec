@@ -32,6 +32,15 @@ $RECYCLE.BIN/
 .env
 .env.*
 !.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+credentials.json
+secrets.json
+*credentials*.json
+service-account*.json
 
 # Логи
 *.log
