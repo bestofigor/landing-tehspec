@@ -61,3 +61,13 @@ build/
 *.tmp
 *.bak
 *.orig
+
+# SSH-ключи (приватные; .pub намеренно не игнорируются)
+.ssh/*
+!.ssh/*.pub
+id_rsa
+id_ed25519
+id_ecdsa
+id_dsa
+*.ppk
+known_hosts
