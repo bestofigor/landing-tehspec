@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(Start-Process \"D:\\\\Projects\\\\landing-tehspec\\\\index.html\")"
+      "PowerShell(Start-Process \"D:\\\\Projects\\\\landing-tehspec\\\\index.html\")",
+      "Bash(ssh igor-vps:*)",
+      "Bash(scp:*)"
     ]
   }
 }
