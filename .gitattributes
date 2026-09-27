@@ -1,0 +1,3 @@
+# Скрипты для Linux всегда с LF, иначе bash на сервере спотыкается на 
+*.sh text eol=lf
+*.conf text eol=lf
