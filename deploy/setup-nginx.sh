@@ -2,7 +2,7 @@
 # Ставит и настраивает nginx под лендинг. Запускать на сервере под root.
 #
 # Использование (с локальной машины, одной командой):
-#   Get-Content deploy/setup-nginx.sh | ssh igor-vps "bash -s -- bestofigor.ru"
+#   Get-Content deploy/setup-nginx.sh | ssh igor-vps "bash -s -- landing.bestofigor.tech"
 #
 # Без аргумента сайт будет отвечать на любое имя и на голый IP.
 
