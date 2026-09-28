@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 
 $host_alias = "igor-vps"
 $remote_dir = "/var/www/landing-tehspec"
-$files = @("index.html", "photo.png")
+$files = @("index.html", "photo-web.jpg")
 
 foreach ($f in $files) {
     if (-not (Test-Path $f)) { throw "Не найден файл: $f" }
