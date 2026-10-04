@@ -296,6 +296,31 @@
     margin-bottom: 16px;
   }
 
+  .case-card p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .cases-note {
+    max-width: 640px;
+    margin: 0 0 28px;
+  }
+
+  .cases-cta {
+    margin: 28px 0 0;
+  }
+
+  .cases-cta a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .cases-cta a:hover { text-decoration-color: var(--highlight-hover); }
+
   .case-card dl {
     margin: 0;
     display: flex;
@@ -559,62 +584,25 @@
     <div class="container">
       <span class="eyebrow">Опыт</span>
       <h2>Кейсы</h2>
+      <p class="cases-note">Готовлю подробные разборы: задача, что сделал, какой получился итог. Публикую только с согласия клиентов, поэтому часть материалов ещё в работе.</p>
       <div class="cases-grid">
         <div class="case-card">
-          <span class="placeholder-tag">Кейс 1 · скоро</span>
-          <h3>Название проекта</h3>
-          <dl>
-            <div>
-              <dt>Задача</dt>
-              <dd>[Плейсхолдер — описание задачи]</dd>
-            </div>
-            <div>
-              <dt>Решение</dt>
-              <dd>[Плейсхолдер — что было сделано]</dd>
-            </div>
-            <div>
-              <dt>Результат</dt>
-              <dd>[Плейсхолдер — итог]</dd>
-            </div>
-          </dl>
+          <span class="placeholder-tag">Кейс готовится</span>
+          <h3>Внедрение ИИ-ассистента</h3>
+          <p>Как нейросеть забирает на себя обработку заявок и ответы на частые вопросы учеников.</p>
         </div>
         <div class="case-card">
-          <span class="placeholder-tag">Кейс 2 · скоро</span>
-          <h3>Название проекта</h3>
-          <dl>
-            <div>
-              <dt>Задача</dt>
-              <dd>[Плейсхолдер — описание задачи]</dd>
-            </div>
-            <div>
-              <dt>Решение</dt>
-              <dd>[Плейсхолдер — что было сделано]</dd>
-            </div>
-            <div>
-              <dt>Результат</dt>
-              <dd>[Плейсхолдер — итог]</dd>
-            </div>
-          </dl>
+          <span class="placeholder-tag">Кейс готовится</span>
+          <h3>Чат-бот и автоворонка</h3>
+          <p>Прогрев и продажи в мессенджерах: сценарий, связки, что пришлось переделать по ходу.</p>
         </div>
         <div class="case-card">
-          <span class="placeholder-tag">Кейс 3 · скоро</span>
-          <h3>Название проекта</h3>
-          <dl>
-            <div>
-              <dt>Задача</dt>
-              <dd>[Плейсхолдер — описание задачи]</dd>
-            </div>
-            <div>
-              <dt>Решение</dt>
-              <dd>[Плейсхолдер — что было сделано]</dd>
-            </div>
-            <div>
-              <dt>Результат</dt>
-              <dd>[Плейсхолдер — итог]</dd>
-            </div>
-          </dl>
+          <span class="placeholder-tag">Кейс готовится</span>
+          <h3>Интеграции и AmoCRM</h3>
+          <p>Как сервисы школы начали передавать данные друг другу без ручного переноса.</p>
         </div>
       </div>
+      <p class="cases-cta">Нужен пример под вашу задачу — <a href="#contact">напишите</a>, расскажу на связи.</p>
     </div>
   </section>
 
